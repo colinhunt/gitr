@@ -1,0 +1,40 @@
+#!/usr/bin/python
+
+import os, sys, subprocess
+import yaml, re
+from copy import copy
+
+args = sys.argv[1:]
+
+repos = []
+for a in [a for a in args if '/' in a]:
+    repos.append(a.split('/', 1))
+
+if not repos:
+    with open('.gitr-config/manifest.yml', 'r') as f:
+        repos = [[r,''] for r in yaml.load(f)['manifest']]
+else:
+    args = [a for a in args if '/' not in a]
+
+basedir = os.getcwd()
+
+print "Operating on", [r for r in repos]
+
+for repo, extra_arg in repos:
+
+    os.chdir(repo)
+    print "#" * 20, repo, "#" * 20
+
+    try:
+        command = ['git', '-c', 'color.ui=always'] + args
+        if extra_arg:
+            command += [extra_arg]
+        output = subprocess.check_output(command, stderr=subprocess.STDOUT)
+        output = re.sub(r'(\t)(\[\d+m|)?([\w ]+: +|)(.+)', r'\1\2\3' + repo + r'/\4', output)
+    except subprocess.CalledProcessError, e:
+        output = e.output
+    except KeyError, e:
+        output = repr(e) 
+
+    print output
+    os.chdir(basedir)
