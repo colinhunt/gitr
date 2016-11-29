@@ -8,6 +8,12 @@ Imagine if you could simply run git commands against all those repos at once?
 
 Open your eyes; you're imagining `gitr`.
 
+## Install
+1. Have python 2.7 installed
+2. Clone the repo.
+3. Symlink `gitr` to a location in your $PATH, or add the repo location to your $PATH
+4. You're done!
+
 ## Usage
 If you know how to use git, you already know how to use `gitr`:
 
