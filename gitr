@@ -10,11 +10,15 @@ repos = []
 for a in [a for a in args if '/' in a]:
     repos.append(a.split('/', 1))
 
-if not repos:
-    with open('.gitr/manifest.yml', 'r') as f:
-        repos = [[r,''] for r in yaml.load(f)['manifest']]
-else:
-    args = [a for a in args if '/' not in a]
+try:
+    if not repos:
+        with open('.gitr/manifest.yml', 'r') as f:
+            repos = [[r,''] for r in yaml.load(f)['manifest']]
+    else:
+        args = [a for a in args if '/' not in a]
+except IOError:
+    print "No repos specified and no config file found. Exiting."
+    exit(1)
 
 basedir = os.getcwd()
 
