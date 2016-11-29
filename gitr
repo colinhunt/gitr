@@ -11,7 +11,7 @@ for a in [a for a in args if '/' in a]:
     repos.append(a.split('/', 1))
 
 if not repos:
-    with open('.gitr-config/manifest.yml', 'r') as f:
+    with open('.gitr/manifest.yml', 'r') as f:
         repos = [[r,''] for r in yaml.load(f)['manifest']]
 else:
     args = [a for a in args if '/' not in a]
