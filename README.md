@@ -147,9 +147,9 @@ and errors you can avoid by using `gitr`.
 ## Config
 You don't need to do any configuration at all to use `gitr`. However, there are some settings to make using it even easier.
 
-`gitr` looks in a folder called `.gitr-config` in the parent directory for its config.
+`gitr` looks in a folder called `.gitr` in the parent directory for its config.
 
-If you create a file called `manifests.yml` with the following content:
+If you create a file in there called `manifest.yml` with the following content:
 ```
 ---
 manifest:
