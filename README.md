@@ -4,7 +4,8 @@ gitr done across multiple git repositories concurrently
 It's not uncommon now to see projects that span multiple git repos. 
 Often, adding a new feature requires changes to many repos, not just one. 
 This is a real hassle with git. Sure, there are submodules and subtrees, but they are cumbersome and error prone. 
-Imagine if you could simply run git commands against many repos at once?
+Imagine if you could simply run git commands against all those repos at once?
+
 Open your eyes; you're imagining `gitr`.
 
 ## Usage
@@ -13,7 +14,7 @@ If you know how to use git, you already know how to use `gitr`:
     gitr [repo path]... [any git command]
   
 All you need to get started is to checkout the desired repos into the same parent directory.
-Change into that directory and start typing git commands: just add an extra `r`.
+Change into that directory and start typing git commands: only just add an extra `r`.
 
 Say the following directory structure exists, and that `roles` and `profiles` are git repos:
 
@@ -83,7 +84,7 @@ Operating on [['roles', 'manifests/new-role.pp'], ['profiles', 'manifests/new-pr
 
 #################### profiles ####################
 ```
-(We could have also just added the one file, or used `gitr roles/ profiles/ add -A`
+(We could have also just added the one file, or used `gitr roles/ profiles/ add -A`)
 
 What's the satus now?
 ```
@@ -163,6 +164,8 @@ you may simply type
 to see the status (or run any other git command) against these repos. 
 This is extremely useful if you often operate on the same repos all the time.
 
-That's all the config `gitr` supports for now!
+Note: you may still supply the repo paths to override the manifest.
+
+That's all the config `gitr` supports for now.
 
 Now go and gitr!
