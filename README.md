@@ -141,7 +141,7 @@ To ssh://git@git@github.com:colinhunt/profiles.git
 Branch my-feature-branch set up to track remote branch my-feature-branch from origin.
 ```
 
-Now imagine instead of just 2 repos, it was 20 repos, and you'll get a sense of the time you can save
+Now imagine instead of just 2 repos, it's 20, and you'll get a sense of the time you can save
 and errors you can avoid by using `gitr`.
 
 ## Config
