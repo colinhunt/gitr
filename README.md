@@ -1,5 +1,4 @@
-# gitr
-gitr done across multiple git repositories concurrently
+# gitr done across multiple git repositories, concurrently
 
 It's not uncommon now to see projects that span multiple git repos. 
 Often, adding a new feature requires changes to many repos, not just one. 
